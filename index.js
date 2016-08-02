@@ -1,3 +1,5 @@
+"use strict";
+
 const prometheus = require('prom-client');
 const onFinished = require('on-finished');
 
@@ -92,11 +94,11 @@ class Prometheus {
     return this.prefix = prefix;
   }
 
-  newHistogram(name, description, labels = [], {buckets} = {}) {
-    return this._build(prometheus.Histogram, name, description, labels, {buckets});
+  newHistogram(name, description, labels, opts) {
+    return this._build(prometheus.Histogram, name, description, labels, opts);
   }
 
-  newGauge(name, description, labels = []) {
+  newGauge(name, description, labels) {
     return this._build(prometheus.Gauge, name, description, labels)
   }
 

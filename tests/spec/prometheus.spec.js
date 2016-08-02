@@ -1,3 +1,5 @@
+"use strict";
+
 const Prometheus = require('./../../');
 const httpMocks = require('node-mocks-http');
 
