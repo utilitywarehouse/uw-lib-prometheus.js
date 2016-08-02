@@ -1,0 +1,43 @@
+{
+  "name": "uw-lib-prometheus.js",
+  "version": "1.0.0",
+  "description": "A tiny wrapper around prom-client offering some express middleware and registry for defined metrics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r tests/.spec.js --recursive tests/spec",
+    "lint": "eslint .",
+    "precommit": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/uw-lib-prometheus.js.git"
+  },
+  "keywords": [
+    "prometheus",
+    "grafana",
+    "express",
+    "metrics",
+    "instrumentation"
+  ],
+  "author": "Michael Donat <michael.donat@me.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/utilitywarehouse/uw-lib-prometheus.js/issues"
+  },
+  "homepage": "https://github.com/utilitywarehouse/uw-lib-prometheus.js#readme",
+  "dependencies": {
+    "on-finished": "^2.3.0",
+    "prom-client": "^3.4.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "dirty-chai": "^1.2.2",
+    "eslint": "^3.2.2",
+    "eslint-config-imperative-es6": "^1.0.0",
+    "husky": "^0.11.6",
+    "mocha": "^3.0.0",
+    "node-mocks-http": "^1.5.2",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  }
+}
