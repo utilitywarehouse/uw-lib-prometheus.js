@@ -46,7 +46,7 @@ class Middleware {
     }
 
     if (metricTotal === metricUsed) {
-      throw new Error('heapUsage two different Gauge metrics');
+      throw new Error('heapUsage requires two different Gauge metrics');
     }
 
     return function(req, res, next) {
