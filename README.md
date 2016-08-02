@@ -2,7 +2,19 @@
 
 A wrapper around [prom-client](https://github.com/siimon/prom-client).
 
-![Build][travis-build]
+[![Build][travis-build-badge]][travis-build-url]
+
+## Install
+
+    npm install --save uw-lib-prometheus.js
+
+## Use
+
+    const prometheus = require('uw-lib-prometheus.js')();
+    
+    prometheus.newGauge('name', 'help').set(10);
+    
+Quick express example is available in [examples directory](./examples).
 
 ## API
 
@@ -18,15 +30,12 @@ The `new*` methods are just decorators for prom-client metric objects and are re
 
 ## Middleware
 
-`Prometheus.metric(string name)` returns a factory for middleware handlers. Following handlers are available:
+`Prometheus.middleware()` returns a factory for middleware handlers. Following handlers are available:
 
 `report()` - dumps plain text metrics for Prometheus server to scrape.
 `requestDuration(string|Histogram histogram)` - records request duration in seconds.
 `heapUsage(string|Gauge used, string|Gauge total)` - records used and total heap in bytes.
 
-## Examples
 
-Quick express example is available in [examples directory](./examples).
-
-
-[travis-build]: https://img.shields.io/travis/utilitywarehouse/uw-lib-prometheus.js.svg
+[travis-build-badge]: https://img.shields.io/travis/utilitywarehouse/uw-lib-prometheus.js.svg?style=flat-square
+[travis-build-url]: https://travis-ci.org/utilitywarehouse/uw-lib-prometheus.js
