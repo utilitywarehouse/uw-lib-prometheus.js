@@ -36,6 +36,7 @@ The `new*` methods are just decorators for prom-client metric objects and are re
 `requestDuration(string|Histogram histogram)` - records request duration in seconds.
 `heapUsage(string|Gauge used, string|Gauge total)` - records used and total heap in bytes.
 
+`requestDuration` will try and assign labels for path and http_status as long as you configured those labels when vreating histogram.
 
 [travis-build-badge]: https://img.shields.io/travis/utilitywarehouse/uw-lib-prometheus.js.svg?style=flat-square
 [travis-build-url]: https://travis-ci.org/utilitywarehouse/uw-lib-prometheus.js

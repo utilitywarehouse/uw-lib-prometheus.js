@@ -66,11 +66,24 @@ class Middleware {
     }
 
     return function(req, res, next) {
-      const labels = {'http_status': 0};
+
+      const labels = {}
+
+      if (metric.labelNames.indexOf('http_status') !== -1) {
+        labels.http_status = 0;
+      }
+
+      if (metric.labelNames.indexOf('path') !== -1) {
+        labels.path = req.path;
+      }
+
       const timeRequest = metric.startTimer(labels);
 
       onFinished(res, () => {
-        labels['http_status'] = res.statusCode;
+        if (labels.hasOwnProperty('http_status')) {
+          labels['http_status'] = res.statusCode;
+        }
+
         timeRequest();
       });
 
