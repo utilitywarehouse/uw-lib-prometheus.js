@@ -77,12 +77,26 @@ class Middleware {
         labels.path = req.path;
       }
 
+      if (metric.labelNames.indexOf('route') !== -1) {
+        labels.route = null;
+      }
+
+      if (metric.labelNames.indexOf('http_method') !== -1) {
+        labels.http_method = req.method;
+      }
+
       const timeRequest = metric.startTimer(labels);
 
       onFinished(res, () => {
         if (labels.hasOwnProperty('http_status')) {
           labels['http_status'] = res.statusCode;
         }
+
+        if (labels.hasOwnProperty('route')) {
+          labels['route'] = req.route ? req.route.path : null;
+        }
+
+        console.log(labels)
 
         timeRequest();
       });

@@ -7,7 +7,7 @@ const middleware = prometheus.middleware();
 prometheus.newHistogram(
   'http_request_seconds',
   'Request duration',
-  ['http_status', 'path'],
+  ['http_status', 'path', 'http_method', 'route'],
   {buckets: [0.001, 0.1, 0.3, 0.5, 0.8, 1, 3, 5, 10]}
 );
 

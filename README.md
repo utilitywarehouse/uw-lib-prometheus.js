@@ -33,10 +33,16 @@ The `new*` methods are just decorators for prom-client metric objects and are re
 `Prometheus.middleware()` returns a factory for middleware handlers. Following handlers are available:
 
 `report()` - dumps plain text metrics for Prometheus server to scrape.
-`requestDuration(string|Histogram histogram)` - records request duration in seconds.
+
+`requestDuration(string|Histogram histogram)` - records request duration in seconds, will try and assign labels based on what the histogram has defined, recognised labels are
+  - `http_status` - captures status on the response object
+  - `http_method` - captures request method (POST, GET etc.)
+  - `path`		- captures request path, note that for parametrised routes it will capture actual parameters (eg. `/user/123123`)
+  - `route`		- captures route regex, this is useful for parametrised routes (eg. `/user/:id`)
+
 `heapUsage(string|Gauge used, string|Gauge total)` - records used and total heap in bytes.
 
-`requestDuration` will try and assign labels for path and http_status as long as you configured those labels when vreating histogram.
+
 
 [travis-build-badge]: https://img.shields.io/travis/utilitywarehouse/uw-lib-prometheus.js.svg?style=flat-square
 [travis-build-url]: https://travis-ci.org/utilitywarehouse/uw-lib-prometheus.js
