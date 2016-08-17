@@ -96,8 +96,6 @@ class Middleware {
           labels['route'] = req.route ? req.route.path : null;
         }
 
-        console.log(labels)
-
         timeRequest();
       });
 
