@@ -2,6 +2,7 @@
 
 const prometheus = require('prom-client');
 const onFinished = require('on-finished');
+const path = require('path');
 
 class Middleware {
 
@@ -93,7 +94,7 @@ class Middleware {
         }
 
         if (labels.hasOwnProperty('route')) {
-          labels['route'] = req.route ? req.route.path : null;
+          labels['route'] = req.route ? path.join(req.app.mountpath, req.route.path) : null;
         }
 
         timeRequest();
