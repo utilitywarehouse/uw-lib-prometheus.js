@@ -120,6 +120,10 @@ class Prometheus {
     return this.prefix = prefix;
   }
 
+  newCounter(name, description, labels) {
+    return this._build(prometheus.Counter, name, description, labels);
+  }
+
   newHistogram(name, description, labels, opts) {
     return this._build(prometheus.Histogram, name, description, labels, opts);
   }

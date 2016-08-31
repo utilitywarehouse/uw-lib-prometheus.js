@@ -9,6 +9,14 @@ describe('Prometheus', function () {
     this.sut = new Prometheus();
   });
 
+  it('builds Counter', function () {
+    const unit = this.sut.newCounter('name', 'help', ['label'])
+
+    expect(unit).to.have.property('name', 'name');
+    expect(unit).to.have.property('help', 'help');
+    expect(unit.labelNames).to.eql(['label']);
+  });
+
   it('builds Gauge', function () {
     const unit = this.sut.newGauge('name', 'help', ['label'])
 
