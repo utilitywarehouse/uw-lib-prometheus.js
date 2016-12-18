@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": "imperative-es6",
   "env": {
     "mocha": true
