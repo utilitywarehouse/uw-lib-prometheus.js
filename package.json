@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/uw-lib-prometheus.js",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A tiny wrapper around prom-client offering some express middleware and registry for defined metrics.",
   "main": "index.js",
   "scripts": {
