@@ -31,7 +31,7 @@ describe('Prometheus', function () {
     expect(unit).to.have.property('name', 'name');
     expect(unit).to.have.property('help', 'help');
     expect(unit.labelNames).to.eql(['label']);
-    expect(unit).to.have.deep.property('bucketValues.1', 0);
+    expect(unit.bucketValues['1']).to.eql(0);
   });
 
   it('can return registered metric', function () {
