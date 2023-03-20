@@ -153,9 +153,9 @@ describe('Prometheus', function () {
 
           handler(this.req, this.res, spy);
 
-          expect(this.sut.metric('gauge1').get()).to.have.deep.property('values.0.value')
+          expect(this.sut.metric('gauge1').get()).to.have.nested.property('values.0.value')
             .and.to.be.above(0);
-          expect(this.sut.metric('gauge2').get()).to.have.deep.property('values.0.value')
+          expect(this.sut.metric('gauge2').get()).to.have.nested.property('values[0].value')
             .and.to.be.above(0);
 
         })
